@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Développement d'applications mobiles, plateformes web, prototypage électronique, et logiciels embarqués.">
+    <meta name="keywords"
+        content="développement mobile, plateformes web, prototypage électronique, logiciels embarqués, freelance">
+    <title>Solutions technologiques sur mesure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00FFAE',
+                        secondary: '#ff00f2',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #00FFAE;
+            --secondary: #ff00f2;
+        }
+
+        @font-face {
+            font-family: etna;
+            src: url(etna-free-font.otf);
+        }
+
+        a:hover {
+            color: var(--primary);
+            background-color: black;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+        }
+
+        strong {
+            font-family: etna, sans-serif;
+            color: var(--primary);
+        }
+
+        .text-multicolor {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .animated-text {
+            height: 120px;
+            width: 800px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .animated-text span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: left;
+            opacity: 0;
+        }
+
+        .animated-logo {
+            display: block;
+            position: absolute;
+            right: 10vw;
+            top: 20vh;
+        }
+
+        #hero {
+            height: 100vh;
+        }
+
+        .svg-container {
+            opacity: 0;
+            position: relative;
+            margin-top: -60px;
+            transform: translateX(-50px);
+        }
+
+        .title-1 {
+            display: inline-block;
+            animation: fadeInSlideLTR 0.3s forwards;
+            animation-delay: 0s;
+            /* opacity: 0; */
+        }
+
+        .title-2 {
+            display: inline-block;
+            animation: fadeInSlideRTL 0.3s forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .title-3 {
+            display: inline-block;
+            animation: fadeInSlideBTT 0.3s forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+
+        .title-4 {
+            display: inline-block;
+            animation: fadeInSlideRTL 0.3s forwards;
+            animation-delay: 1.2s;
+            opacity: 0;
+        }
+
+        .sub-logo-1 {
+            animation: fadeInSlideBTT 0.3s forwards;
+            animation-delay: 0s;
+        }
+
+        .sub-logo-2 {
+            animation: fadeInSlideRTL 0.3s forwards;
+            animation-delay: 0.3s;
+        }
+
+        .sub-logo-3 {
+            animation: fadeInSlideLTR 0.3s forwards;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInSlideBTT {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSlideLTR {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInSlideRTL {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white-100 text-gray-900">
+
+    <!-- Header -->
+    <header
+        class="fixed inset-x-0 top-0 py-4 text-black backdrop-blur-sm bg-gradient-to-r from-primary/50 to-secondary/50 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">compoz logo</div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-black py-20 flex items-center" id="hero">
+        <div class="container mx-auto text-center">
+            <h1 class="text-8xl font-thin text-gray-100 text-left align-bottom">
+                <span class="title-1">Ensemble,</span>
+                <span class="title-2">on</span><br />
+                <strong class="title-3">compoz</strong>
+                <span class="title-4">votre</span>
+                <span class="animated-text">
+                    <span id="anim-text-1" class="anim-text-1 text-multicolor">dulzp lnujea</span>
+                    <!-- <span class="anim-text-1 text-multicolor">appli&nbsp;mobile</span> -->
+                    <span class="anim-text-2 text-multicolor">plateforme&nbsp;web</span>
+                    <span class="anim-text-3 text-multicolor">proto&nbsp;électronique</span>
+                </span>
+            </h1>
+            <div class="animated-logo">
+                <div class="svg-container sub-logo-1 z-20">
+                    <img width="200px" src="sub_logo.svg" alt="compoz logo part">
+                </div>
+                <div class="svg-container sub-logo-2 z-10">
+                    <img width="200px" src="sub_logo.svg" alt="compoz logo part">
+                </div>
+                <div class="svg-container sub-logo-3 z-0">
+                    <img width="200px" src="sub_logo.svg" alt="compoz logo part">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <span id="myText" class="text-multicolor">appli mobile</span>
+
+        <p class="mt-4 text-xl text-gray-300">Applications mobiles, plateformes web, prototypage électronique, et
+            logiciels embarqués.</p>
+        <a href="#contact" class="mt-6 inline-block px-8 py-3 bg-white/20 text-white rounded-lg">Commencer</a>
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold">Nos Services</h2>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <img src="app-development.png" alt="App Mobile" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Développement d'applications mobiles</h3>
+                    <p class="mt-2 text-gray-600">Développement natif et hybride pour iOS et Android.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <img src="web-development.png" alt="Plateforme Web" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Développement de plateformes web</h3>
+                    <p class="mt-2 text-gray-600">Création de sites et applications web performants.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <img src="electronics-prototype.png" alt="Prototypage" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Prototypage électronique</h3>
+                    <p class="mt-2 text-gray-600">Conception et réalisation de prototypes électroniques.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <img src="embedded-software.png" alt="Logiciels Embarqués" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Développement de logiciels embarqués</h3>
+                    <p class="mt-2 text-gray-600">Solutions logicielles pour systèmes embarqués.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-blue-600">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl text-white font-bold">Contactez-moi</h2>
+            <form class="mt-10 max-w-xl mx-auto">
+                <input type="text" class="block w-full p-4 rounded-lg mb-4" placeholder="Nom">
+                <input type="email" class="block w-full p-4 rounded-lg mb-4" placeholder="Email">
+                <textarea class="block w-full p-4 rounded-lg mb-4" placeholder="Votre message"></textarea>
+                <button class="w-full bg-white text-blue-600 font-bold py-3 rounded-lg">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-900 text-gray-400">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 compoz technologies. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script>
+        const ease = "power3.easeOut";
+        const offset = 50;
+        const duration = 1;
+
+        document.addEventListener("DOMContentLoaded", async (event) => {
+            gsap.registerPlugin(TextPlugin)
+
+            var tl3 = gsap.timeline({
+                repeat: -1,
+                repeatDelay: 0,
+                yoyo: false,
+                onComplete: function () {
+                    tl2.restart();
+                },
+                defaults: {
+                    immediateRender: false
+                }
+            });
+            tl3.to("#myText", { duration: 1, text: "appli mobile", delay: 1 });
+            tl3.to("#myText", { duration: 1, text: "plateforme web", delay: 1 });
+            tl3.to("#myText", { duration: 1, text: "proto électronique", delay: 1 });
+
+            // await gsap.fromTo(".animated-text .anim-text-1",
+            //     { opacity: 0, y: -offset },
+            //     { opacity: 1, y: 0, duration: duration, ease: ease, delay: 2 }
+            // );
+
+            await gsap.fromTo("#anim-text-1",
+                { opacity: 0 },
+                { opacity: 1, text: "appli mobile", duration: duration, delay: 2 }
+            );
+
+            var tl2 = gsap.timeline({
+                repeat: -1,
+                repeatDelay: 0,
+                yoyo: false,
+                onComplete: function () {
+                    tl2.restart();
+                },
+                defaults: {
+                    immediateRender: false
+                }
+            });
+
+            tl2.fromTo(
+                ".animated-text .anim-text-1",
+                { opacity: 1 },
+                { opacity: 1, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-1",
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: offset, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-2",
+                { opacity: 0, y: -offset },
+                { opacity: 1, y: 0, duration: duration, ease: ease },
+                "<0%"
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-2",
+                { opacity: 1 },
+                { opacity: 1, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-2",
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: offset, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-3",
+                { opacity: 0, y: -offset },
+                { opacity: 1, y: 0, duration: duration, ease: ease },
+                "<0%"
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-3",
+                { opacity: 1 },
+                { opacity: 1, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-3",
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: offset, duration: duration, ease: ease }
+            );
+            tl2.fromTo(
+                ".animated-text .anim-text-1",
+                { opacity: 0, y: -offset },
+                { opacity: 1, y: 0, duration: duration, ease: ease },
+                "<0%"
+            );
+
+        });
+    </script>
+</body>
+
+</html>
