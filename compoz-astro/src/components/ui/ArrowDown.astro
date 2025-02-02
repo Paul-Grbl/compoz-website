@@ -1,0 +1,60 @@
+<svg
+    class="arrow"
+    width="50"
+    height="50"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path class="arrow-body" d="M12 5 v14"></path>
+    <path class="arrow-head" d="M17 15 l-5 5 -5 -5"></path>
+</svg>
+
+<style>
+    .arrow {
+        position: absolute;
+        bottom: 40px;
+        left: calc(50% - 24px);
+        animation: bounce 1.2s infinite;
+    }
+
+    .arrow-body {
+        stroke-dasharray: 14 14;
+        stroke-dashoffset: 0;
+        animation: resize 1.2s infinite;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(10px);
+            animation-timing-function: ease-in;
+        }
+        100% {
+            transform: translateY(0);
+            animation-timing-function: linear;
+        }
+    }
+
+    @keyframes resize {
+        0% {
+            transform: translateY(0);
+            stroke-dasharray: 14 14;
+        }
+        30% {
+            transform: translateY(3px);
+            stroke-dasharray: 12 14;
+        }
+        100% {
+            transform: translateY(0);
+            stroke-dasharray: 14 14;
+            animation-timing-function: linear;
+        }
+    }
+</style>
