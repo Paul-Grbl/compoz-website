@@ -17,7 +17,8 @@ import ArrowDown from "../ui/ArrowDown.astro";
                 >
                     <!-- Navigating the <br /> digital landscape <br /> for success -->
                     Ensemble on <br />
-                    <strong>compoz</strong> votre <br /> application mobile
+                    <strong>compoz</strong> votre <br />
+                    <span id="animated-text">application mobile</span>
                 </h1>
                 <p
                     class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12"
@@ -26,9 +27,9 @@ import ArrowDown from "../ui/ArrowDown.astro";
                     accompagne dans l'élaboration d'une solution technique
                     <strong>compozée sur mesure</strong> grâce à mon expérience dans
                     différents domaines techniques.
-                    <br />De l'application mobile au SaaS complet en passant par
-                    le système embarqué communicant, je développe vos produits
-                    numériques.
+                    <br />De l'application mobile au système embarqué
+                    communicant en passant par l'application web, je développe
+                    vos produits numériques.
                 </p>
                 <div
                     class="w-full justify-center md:justify-start items-center inline-flex"
@@ -50,3 +51,49 @@ import ArrowDown from "../ui/ArrowDown.astro";
         <ArrowDown />
     </a>
 </Section>
+
+<script>
+    import gsap from "gsap";
+    import { TextPlugin } from "gsap/TextPlugin";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        gsap.registerPlugin(TextPlugin);
+
+        var tl = gsap.timeline({
+            repeat: -1,
+            repeatDelay: 0,
+            yoyo: false,
+            onComplete: function () {
+                tl.restart();
+            },
+            defaults: {
+                immediateRender: false,
+            },
+        });
+
+        tl.to("#animated-text", {
+            duration: 2,
+            text: "appli web",
+            ease: "power2.inOut",
+            delay: 1,
+        });
+        tl.to("#animated-text", {
+            duration: 2,
+            text: "appli desktop",
+            ease: "power2.inOut",
+            delay: 1,
+        });
+        tl.to("#animated-text", {
+            duration: 2,
+            text: "appli embarquée",
+            ease: "power2.inOut",
+            delay: 1,
+        });
+        tl.to("#animated-text", {
+            duration: 2,
+            text: "application mobile",
+            ease: "power2.inOut",
+            delay: 1,
+        });
+    });
+</script>
