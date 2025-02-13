@@ -5,19 +5,20 @@ import Linkedin from "../../assets/linkedin.svg";
 import Logo from "../../assets/logo-alt.svg";
 import Twitter from "../../assets/twitter.svg";
 import ShortForm from "../ui/ShortForm.astro";
+import Form from "./Form.astro";
 
 const logos = [
-  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
+  // { name: "Facebook", src: Facebook, link: "https://facebook.com" },
   { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
-  { name: "Twitter", src: Twitter, link: "https://twitter.com" },
+  // { name: "Twitter", src: Twitter, link: "https://twitter.com" },
 ];
 
 const links = [
   { name: "A propos", href: "#about" },
   { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#cases" },
-  { name: "Pricing", href: "#Testimonials" },
-  { name: "Blog", href: "#Home" },
+  { name: "Projets", href: "#cases" },
+  // { name: "Pricing", href: "#Testimonials" },
+  { name: "Blog", href: "/articles" },
 ];
 ---
 
@@ -31,8 +32,8 @@ const links = [
           class="flex flex-col lg:flex-row gap-7 items-center justify-between"
         >
           <picture>
-            <a href="#home">
-              <Image src={Logo} alt="Logo for Kreatif Brand" />
+            <a href="/">
+              <Image src={Logo} alt="Logo de compoz technologies" />
             </a>
           </picture>
           <ul class="flex flex-col sm:flex-row gap-5">
@@ -70,18 +71,14 @@ const links = [
             class="flex text-center lg:text-start flex-col w-full lg:w-[30%]"
           >
             <h3 class="mb-5 text-center md:text-left text-2xl text-green">
-              Contact us
+              Contact
             </h3>
             <div class="flex flex-col justify-between gap-4">
-              <span> Email: examplemail.com </span>
-              <span> Phone: +123 456 789 </span>
-              <span class="lg:w-3/4">
-                Address: 1234 Street Name, City Name, Country Name
-              </span>
+              <span id="contact-address"></span>
             </div>
           </div>
           <div class="flex-grow my-10 lg:my-0 lg:ml-12">
-            <ShortForm />
+            <!-- <ShortForm /> -->
           </div>
         </div>
       </div>
@@ -90,16 +87,10 @@ const links = [
       <div
         class="flex flex-col lg:flex-row h-20 justify-center mt-4 text-center md:justify-between md:mt-0"
       >
-        <span
-          >2024 Positivus - Made With <a
-            class="underline"
-            target="_blank"
-            href="https://astro.build">Astro</a
-          > by
-          <a class="underline" target="_blank" href="https://manulthanura.com"
-            >Manul</a
-          ></span
-        >&nbsp
+        <span>
+          {new Date().getFullYear()}
+          <strong>compoz</strong> technologies
+        </span>
         <span>
           Credits (
           <a
@@ -123,3 +114,13 @@ const links = [
     </div>
   </div>
 </section>
+
+<script>
+  const user = "&#99;&#111;&#110;&#116;&#97;&#99;&#116;";
+  const domain =
+    "&#99;&#111;&#109;&#112;&#111;&#122;&#46;&#116;&#101;&#99;&#104;";
+  let addr = document.getElementById("contact-address");
+  if (addr != null) {
+    addr.innerHTML = `${user}@${domain}`;
+  }
+</script>

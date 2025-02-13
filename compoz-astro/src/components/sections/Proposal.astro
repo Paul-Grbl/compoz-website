@@ -12,12 +12,18 @@ import propImg from "../../assets/pics/proposal-pic.png";
       class="flex bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]"
     >
       <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
-        <h2 class="text-3xl font-medium">Let's make things happen</h2>
+        <h2 class="text-3xl font-medium">Ça commence dès maintenant</h2>
         <p>
-          Contact us today to learn more about how our digital marketing
-          services can help your business grow and succeed online.
+          Contactez-moi dès à présent pour me présenter vos besoins et discuter
+          des solutions que nous pourrons mettre en place pour y répondre.
         </p>
-        <button class="btn-primary">Get your free proposal</button>
+        <a id="contactClick" href="/#contact" hidden></a>
+        <button
+          class="btn-primary"
+          onclick="document.getElementById('contactClick').click();"
+        >
+          Entrer en contact
+        </button>
       </div>
       <picture
         class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center"
