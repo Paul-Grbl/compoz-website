@@ -2,6 +2,9 @@
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import HeroIlust from "../../assets/pics/hero.svg";
+import HeroIlust1 from "../../assets/pics/ios-frame.svg";
+import HeroIlust2 from "../../assets/pics/web-frame.svg";
+import HeroIlust3 from "../../assets/pics/embarque-frame.svg";
 import ArrowDown from "../ui/ArrowDown.astro";
 ---
 
@@ -29,9 +32,9 @@ import ArrowDown from "../ui/ArrowDown.astro";
                     accompagne dans l'élaboration d'une solution technique
                     <strong>compozée sur mesure</strong> grâce à mon expérience dans
                     différents domaines techniques.
-                    <br />De l'application mobile au système embarqué
-                    communicant en passant par l'application web, je développe
-                    vos produits numériques.
+                    <br />De l'application mobile à l'application web en passant
+                    par le système embarqué communicant, je développe vos
+                    produits numériques.
                 </p>
                 <div
                     class="w-full justify-center md:justify-start items-center inline-flex"
@@ -45,14 +48,88 @@ import ArrowDown from "../ui/ArrowDown.astro";
                 </div>
             </div>
         </div>
-        <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-            <Image src={HeroIlust} alt="Hero Ilustration" loading="eager" />
+        <div
+            class="flex items-center relative py-5 md:w-6/12 md:pb-20 md:pt-10 right-0"
+        >
+            <Image
+                src={HeroIlust1}
+                alt="Hero Ilustration"
+                loading="eager"
+                class="floating1 -rotate-12 md:w-4/12 z-10 left-20 absolute shadow-xl rounded-[28px]"
+            />
+            <Image
+                src={HeroIlust2}
+                alt="Hero Ilustration"
+                loading="eager"
+                class="floating2 rotate-3 left-0 absolute shadow-xl rounded-md"
+            />
+            <Image
+                src={HeroIlust3}
+                alt="Hero Ilustration"
+                loading="eager"
+                class="floating3 rotate-12 md:w-4/12 right-0 -mt-5 absolute shadow-lg rounded-xl"
+            />
         </div>
     </div>
     <a href="#services">
         <ArrowDown />
     </a>
 </Section>
+
+<style>
+    @keyframes float1 {
+        0% {
+            transform: translateY(0) rotate(-12deg) translateX(0px);
+        }
+        50% {
+            transform: translateY(-8px) rotate(-12deg) translateX(5px);
+        }
+        100% {
+            transform: translateY(0) rotate(-12deg) translateX(0px);
+        }
+    }
+
+    .floating1 {
+        animation: float1 6s ease-in-out infinite;
+        animation-delay: 1.5s;
+        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+    }
+
+    @keyframes float2 {
+        0% {
+            transform: translateY(0) rotate(1deg) translateX(0px);
+        }
+        50% {
+            transform: translateY(-8px) rotate(1deg) translateX(-1px);
+        }
+        100% {
+            transform: translateY(0) rotate(1deg) translateX(0px);
+        }
+    }
+
+    .floating2 {
+        animation: float2 6s ease-in-out infinite;
+        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+    }
+
+    @keyframes float3 {
+        0% {
+            transform: translateY(0) rotate(12deg) translateX(0px);
+        }
+        50% {
+            transform: translateY(-12px) rotate(12deg) translateX(4px);
+        }
+        100% {
+            transform: translateY(0) rotate(12deg) translateX(0px);
+        }
+    }
+
+    .floating3 {
+        animation: float3 6s ease-in-out infinite;
+        animation-delay: 0.5s;
+        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+    }
+</style>
 
 <script>
     import gsap from "gsap";

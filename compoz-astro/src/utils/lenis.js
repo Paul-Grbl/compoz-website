@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (t) {
         let href = t.getAttribute("href");
         let target = href.startsWith("/#") ? href.substring(1) : href;
-        // lenis.scrollTo(target, { offset: -132 } ?? "");
-        lenis.scrollTo(target);
+        lenis.scrollTo(target, { offset: -80 } ?? "");
       }
     });
   });

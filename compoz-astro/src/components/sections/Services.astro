@@ -3,12 +3,10 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
 import Section from "./Section.astro";
 
-import c1 from "../../assets/pics/card-pic1.png";
+import c1 from "../../assets/pics/services-mobile.png";
 import c2 from "../../assets/pics/card-pic2.png";
-import c3 from "../../assets/pics/card-pic3.png";
-import c4 from "../../assets/pics/card-pic4.png";
-import c5 from "../../assets/pics/card-pic5.png";
-import c6 from "../../assets/pics/card-pic6.png";
+import c3 from "../../assets/pics/services-linux.png";
+import c4 from "../../assets/pics/services-desktop.png";
 
 const cards = [
   {
@@ -23,7 +21,7 @@ const cards = [
     index: 2,
     titleTop: "Applications web",
     titleBottom: "React, django, directus",
-    img: c3,
+    img: c2,
     alt: "SEO",
     link: "/#services",
   },
@@ -31,7 +29,7 @@ const cards = [
     index: 3,
     titleTop: "Applications embarquées",
     titleBottom: "IHM, Linux, Raspberry Pi",
-    img: c5,
+    img: c3,
     alt: "SEO",
     link: "/#services",
   },
@@ -39,35 +37,21 @@ const cards = [
     index: 1,
     titleTop: "Applications desktop",
     titleBottom: "macOS, Linux, Windows",
-    img: c2,
-    alt: "SEO",
-    link: "/#services",
-  },
-  {
-    index: 2,
-    titleTop: "Architecture multi-",
-    titleBottom: "logicielle complexe et IoT",
-    img: c5,
-    alt: "SEO",
-    link: "/#services",
-  },
-  {
-    index: 3,
-    titleTop: "Firmwares microcontrôleurs",
-    titleBottom: "ESP32, STM32, NXP",
-    img: c3,
+    img: c4,
     alt: "SEO",
     link: "/#services",
   },
 ];
 
-const description = "Votre besoin + compoz = votre application sur mesure";
+const description =
+  "Votre besoin + compoz = votre solution numérique sur mesure";
 ---
 
 <Section id="services">
-  <div class="mt-[140px] mb-5">
+  <!-- <div class="mt-[140px] mb-5"> -->
+  <div class="mt-20 mb-5">
     <SectionTitle sectionTitle="Services" description={description} />
-    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+    <div class="grid lg:grid-cols-2 lg:grid-rows-2 gap-10">
       {
         cards.map((card) => (
           <ServiceCard
