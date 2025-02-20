@@ -2,25 +2,45 @@
 import { Image } from "astro:assets";
 import Card from "../ui/Card.astro";
 import Section from "./Section.astro";
+import chip from "../../assets/icons/chip.svg";
+import desktop from "../../assets/icons/desktop.svg";
+import mobile from "../../assets/icons/mobile.svg";
+import linux from "../../assets/icons/linux.svg";
+import server from "../../assets/icons/server.svg";
 
 const cards = [
   {
     index: 0,
-    title:
-      "Création de flouz, une application mobile pour faire les comptes entre amis. J'ai développé cette app en utilisant le framework Flutter du langage Dart et en me basant sur la clean architecture. J'ai aussi développé la partie serveur (backend).",
-    link: "/#cases",
+    paragraphs: [
+      "Création d'une application mobile pour iOS et android dans le but de simplifier les comptes entre amis.",
+      "J'ai développé cette app en utilisant le framework Flutter du langage Dart et en me basant sur la clean architecture.",
+      "J'ai aussi développé la partie serveur (backend).",
+    ],
+    related: "Flutter, iOS, android, Serverpod, docker",
+    icons: [mobile, server],
+    alt: ["mobile", "server"],
   },
   {
     index: 1,
-    title:
-      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
-    link: "/#cases",
+    paragraphs: [
+      "Pour une entreprise dans le domaine de la gestion d'équipements électroniques, j'ai développé une IHM (avec Flutter) embarquée dans un Raspberry Compute module 4 s'exécutant sur un écran tactile.",
+      " Cette application communique avec des protocoles bas niveau pour piloter l'électronique, et avec une appli web django en MQTT pour laquelle j'ai contribué au développement backend et frontend.",
+      "J'ai également développé le firmware embarqué (en C sur un RP2040) dans une carte électronique qui communique en RS485 avec le compute module.",
+    ],
+    related: "Flutter, django, C, MQTT, linux, docker",
+    icons: [mobile, desktop, server, linux, chip],
+    alt: ["mobile", "desktop", "server", "linux", "chip"],
   },
   {
-    index: 1,
-    title:
-      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
-    link: "/#cases",
+    index: 2,
+    paragraphs: [
+      "Pour une PME dans le domaine de l'assainissement, j'ai développé une application web (React) et contribué au développement du serveur django.",
+      "Tous deux sont embarqués dans leur nouveau produit connecté qui permet la visualisation et la télérelève de données métier.",
+      "Dans ce cadre, j'ai également développé des services linux (python, C) dans le but de faire communiquer le produit en MQTT via le réseau cellulaire.",
+    ],
+    related: "React, django, C, python, linux",
+    icons: [desktop, server, linux],
+    alt: ["desktop", "server", "linux"],
   },
 ];
 
@@ -32,21 +52,23 @@ import SectionTitle from "../ui/SectionTitle.astro";
   <div class="mt-20">
     <SectionTitle
       sectionTitle="Derniers projets"
-      description="Explorez des exemples de projets que j'ai mené à bien ces dernières années"
+      description="Quelques exemples de projets que j'ai menés à bien ces dernières années"
     />
     <div class="flex flex-col lg:flex-row justify-between rounded-[45px] p-1">
       {
         cards.map((card) => (
           <Card>
-            <div class="flex p-[60px] h-full bg-dark text-gray rounded-[45px] m-[1px]">
+            <div class="flex p-[60px] h-full bg-dark text-gray rounded-[45px] me-5">
               <div class="flex flex-col gap-5">
-                <p>{card.title}</p>
-                <a href={card.link} class="flex items-center gap-[15px]">
-                  <span class="text-green">Case Info</span>
-                  <picture>
-                    <Image src={larrow} alt="Arrow pointing up right" />
-                  </picture>
-                </a>
+                <div class="flex flex-row gap-5">
+                  {card.icons.map((icon, index) => (
+                    <Image src={icon} alt={card.alt[index]} />
+                  ))}
+                </div>
+                {card.paragraphs.map((p) => (
+                  <p>{p}</p>
+                ))}
+                <span class="text-green">{card.related}</span>
               </div>
             </div>
           </Card>
