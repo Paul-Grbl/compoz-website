@@ -12,18 +12,20 @@ const cards = [
   {
     index: 1,
     titleTop: "Applications mobiles",
-    titleBottom: "Flutter (iOS & android)",
+    titleBottom: "iOS & android",
     img: c1,
     alt: "SEO",
     link: "/#services",
+    stack: "Flutter, Serverpod, Directus",
   },
   {
     index: 2,
     titleTop: "Applications web",
-    titleBottom: "React, django, directus",
+    titleBottom: "responsives fullstack",
     img: c2,
     alt: "SEO",
     link: "/#services",
+    stack: "React, django, directus, nodeJS",
   },
   {
     index: 3,
@@ -32,6 +34,7 @@ const cards = [
     img: c3,
     alt: "SEO",
     link: "/#services",
+    stack: "Flutter/Dart, python, C",
   },
   {
     index: 1,
@@ -40,6 +43,7 @@ const cards = [
     img: c4,
     alt: "SEO",
     link: "/#services",
+    stack: "Flutter/Dart, python",
   },
 ];
 
@@ -51,7 +55,7 @@ const description =
   <!-- <div class="mt-[140px] mb-5"> -->
   <div class="mt-20 mb-5">
     <SectionTitle sectionTitle="Services" description={description} />
-    <div class="grid lg:grid-cols-2 lg:grid-rows-2 gap-10">
+    <div class="grid md:grid-cols-2 md:grid-rows-2 gap-10">
       {
         cards.map((card) => (
           <ServiceCard
@@ -61,6 +65,7 @@ const description =
             img={card.img}
             alt={card.alt}
             link={card.link}
+            stack={card.stack}
           />
         ))
       }

@@ -1,0 +1,95 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Mentions légales">
+    <main class="space-y-20">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
+            <div
+                class="relative flex flex-col-reverse items-center md:flex-row"
+                id="hero"
+            >
+                <div class="row items-center py-5 md:pb-20 md:pt-10">
+                    <div class="space-y-10">
+                        <h2
+                            class="text-center text-5xl font-medium leading-none md:text-6xl"
+                        >
+                            Mentions légales
+                        </h2>
+                        <p
+                            class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12"
+                        >
+                            Conformément aux dispositions de la loi n° 2004-575
+                            du 21 juin 2004 pour la confiance en l'économie
+                            numérique, il est précisé aux utilisateurs du site <strong
+                                >compoz technologies</strong
+                            > l'identité des différents intervenants dans le cadre
+                            de sa réalisation et de son suivi.
+                        </p>
+                        <h3 class="text-4xl font-medium">Edition du site</h3>
+                        <p>
+                            Le présent site, accessible à l’URL www.compoz.tech
+                            (le « Site »), est édité par : Paul GUIRBAL - <span
+                                class="street"></span>
+                            <span class="code"></span>
+                            <span class="city"></span>, de nationalité Française
+                            (France).
+                        </p>
+                        <h3 class="text-4xl font-medium">Hébergement</h3>
+                        <p>
+                            Le Site est hébergé par la société Hostinger
+                            International LTD, situé à : HOSTINGER operations,
+                            UAB Švitrigailos str. 34, Vilnius 03230 Lithuania,
+                            https://www.hostinger.fr/contact .
+                        </p>
+                        <h3 class="text-4xl font-medium">
+                            Directeur de publication
+                        </h3>
+                        <p>
+                            Le Directeur de la publication du Site est Paul
+                            GUIRBAL - <span class="street"></span>
+                            <span class="code"></span>
+                            <span class="city"></span> (<span
+                                class="contact-address"></span>)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>
+
+<script>
+    const user = "&#99;&#111;&#110;&#116;&#97;&#99;&#116;";
+    const domain =
+        "&#99;&#111;&#109;&#112;&#111;&#122;&#46;&#116;&#101;&#99;&#104;";
+    const street =
+        "&#55; &#114;&#117;&#101; &#100;&#117; &#118;&#105;&#118;&#105;&#101;&#114;";
+    const code = "&#51;&#49;&#54;&#53;&#48;";
+    const city =
+        "&#83;&#65;&#73;&#78;&#84;&#45;&#79;&#82;&#69;&#78;&#83;&#45;&#68;&#69;&#45;&#71;&#65;&#77;&#69;&#86;&#73;&#76;&#76;&#69;";
+    let elements = document.getElementsByClassName("contact-address");
+    if (elements != null) {
+        for (const e of elements) {
+            e.innerHTML = `${user}@${domain}`;
+        }
+    }
+    elements = document.getElementsByClassName("street");
+    if (elements != null) {
+        for (const e of elements) {
+            e.innerHTML = street;
+        }
+    }
+    if (elements != null) {
+        elements = document.getElementsByClassName("code");
+        for (const e of elements) {
+            e.innerHTML = code;
+        }
+    }
+    elements = document.getElementsByClassName("city");
+    if (elements != null) {
+        for (const e of elements) {
+            e.innerHTML = city;
+        }
+    }
+</script>

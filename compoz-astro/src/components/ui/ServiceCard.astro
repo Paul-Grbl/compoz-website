@@ -11,7 +11,7 @@ import wob from "../../assets/icon7.svg";
 3. Black card with gray title and gray on black icon
 */
 
-const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
+const { index, titleTop, titleBottom, img, alt, link, stack } = Astro.props;
 ---
 
 <Card isUnderline={true}>
@@ -35,11 +35,12 @@ const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
         class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
       />
     </picture>
-    <div class="flex items-end">
-      <a href={link} class="flex items-center gap-3.5"
+    <div class="flex items-end w-min">
+      <!-- <a href={link} class="flex items-center gap-3.5"
         ><Image src={index === 1 || index === 2 ? gob : wob} alt={alt} />
         <span class="hidden sm:block">En savoir plus</span></a
-      >
+      > -->
+      {stack}
     </div>
   </div>
 </Card>
