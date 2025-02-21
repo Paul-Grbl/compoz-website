@@ -99,6 +99,12 @@ import decorForm from "../../assets/pics/contact-pic.svg";
       <span id="responseMessage" class="text-primary"></span>
     </div>
 
+    <div
+      class="g-recaptcha mb-4"
+      data-sitekey="6LdYXN4qAAAAAFpUmV-lRSrNLEtd4F0c_JwVf4u1"
+    >
+    </div>
+
     <button
       id="submitBtn"
       type="submit"
@@ -144,6 +150,8 @@ import decorForm from "../../assets/pics/contact-pic.svg";
     transform: scale(0.6);
   }
 </style>
+<script is:inline src="https://www.google.com/recaptcha/api.js" async defer
+></script>
 <script>
   function formSetup() {
     setTimeout(

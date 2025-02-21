@@ -1,6 +1,7 @@
 <?php
+    require_once("../env.php");
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        if (!isset($_POST["name"], $_POST["email"], $_POST["message"])) {
+        if (!isset($_POST["name"], $_POST["email"], $_POST["message"], $_POST['g-recaptcha-response'])) {
             http_response_code(400);
             exit(2);
         }
@@ -12,6 +13,26 @@
         $name = trim($_POST["name"]);
         $email = trim($_POST["email"]);
         $message = trim($_POST["message"]);
+
+        // Verif reCAPTCHA
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = array('secret' => $secret_key, 'response' => $recaptcha_response);
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        $result_json = json_decode($result);
+        if (!($result_json->success)) {
+            // Invalid CAPTCHA
+            http_response_code(403);
+            exit(7);
+        }
 
         if (!preg_match("/^[a-zA-ZÀ-ÿ' -]{2,50}$/", $name)) {
             // Invalid name
