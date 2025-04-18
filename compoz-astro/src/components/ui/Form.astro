@@ -102,8 +102,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
     <div
       class="g-recaptcha mb-4"
       data-sitekey="6LdYXN4qAAAAAFpUmV-lRSrNLEtd4F0c_JwVf4u1"
-      data-callback="onCaptchaSuccess"
-      data-expired-callback="onCaptchaExpired"
     >
     </div>
 
@@ -156,19 +154,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
 ></script>
 <script>
   declare const grecaptcha: any;
-
-  let captchaToken = "";
-  let captchaReady = false;
-
-  function onCaptchaSuccess(token: string) {
-    captchaToken = token;
-    captchaReady = true;
-  }
-
-  function onCaptchaExpired() {
-    captchaToken = "";
-    captchaReady = false;
-  }
 
   function formSetup() {
     setTimeout(
@@ -254,14 +239,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
           errorEmail.setAttribute("hidden", "true");
         }
 
-        if (!captchaReady || captchaToken === "") {
-          if (responseMessage) {
-            responseMessage.innerText = "Veuillez valider le reCAPTCHA.";
-            responseMessage.classList.add("text-red-500");
-          }
-          error = true;
-        }
-
         if (error) {
           return;
         }
@@ -286,8 +263,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
           });
 
           grecaptcha.reset();
-          captchaToken = "";
-          captchaReady = false;
 
           if (responseMessage && response.status === 200) {
             responseMessage.innerText = "Email envoyé avec succès.";
