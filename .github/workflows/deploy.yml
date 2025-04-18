@@ -13,27 +13,31 @@ jobs:
       - name: 🛎️ Checkout du code
         uses: actions/checkout@v3
 
-      - name: 📂 Aller dans le dossier du projet Astro
-        run: cd compoz-astro
-
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
       - name: 📦 Installer les dépendances
+        working-directory: ./compoz-astro
         run: npm install
 
       - name: 🏗️ Build du projet
+        working-directory: ./compoz-astro
         run: npm run build
 
-      - name: 🚚 Déploiement via SSH
-        uses: easingthemes/ssh-deploy@v2.1.5
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-user: ${{ secrets.REMOTE_USER }}
-          server-ip: ${{ secrets.REMOTE_HOST }}
-          remote-path: /home/u240159074/domains/compoz.tech/public_html
-          local-path: compoz-astro/dist/
-          port: 65002
-          args: "-avz --exclude='.DS_Store'"
+      - name: 🚚 Déploiement via rsync
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > key.pem
+          chmod 600 key.pem
+
+          rsync -avz -e "ssh -p 65002 -i key.pem -o StrictHostKeyChecking=no" \
+            --exclude='.DS_Store' \
+            ./compoz-astro/dist/ $REMOTE_USER@$REMOTE_HOST:/home/u240159074/domains/compoz.tech/public_html/
+
+          rm key.pem
+
