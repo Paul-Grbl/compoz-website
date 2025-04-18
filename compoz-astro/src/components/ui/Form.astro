@@ -254,7 +254,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
           message = "Objet: Boire un café\n\n" + message;
         }
         formData.set("message", message);
-        formData.set("g-recaptcha-response", captchaToken);
 
         try {
           const response = await fetch("https://compoz.tech/sendmail.php", {
