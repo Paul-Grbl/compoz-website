@@ -102,6 +102,8 @@ import decorForm from "../../assets/pics/contact-pic.svg";
     <div
       class="g-recaptcha mb-4"
       data-sitekey="6LdYXN4qAAAAAFpUmV-lRSrNLEtd4F0c_JwVf4u1"
+      data-callback="onCaptchaSuccess"
+      data-expired-callback="onCaptchaExpired"
     >
     </div>
 
@@ -153,6 +155,21 @@ import decorForm from "../../assets/pics/contact-pic.svg";
 <script is:inline src="https://www.google.com/recaptcha/api.js" async defer
 ></script>
 <script>
+  declare const grecaptcha: any;
+
+  let captchaToken = "";
+  let captchaReady = false;
+
+  function onCaptchaSuccess(token: string) {
+    captchaToken = token;
+    captchaReady = true;
+  }
+
+  function onCaptchaExpired() {
+    captchaToken = "";
+    captchaReady = false;
+  }
+
   function formSetup() {
     setTimeout(
       () =>
@@ -217,6 +234,7 @@ import decorForm from "../../assets/pics/contact-pic.svg";
 
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
+        const responseMessage = document.getElementById("responseMessage");
 
         // Input validation
         let error = false;
@@ -236,6 +254,14 @@ import decorForm from "../../assets/pics/contact-pic.svg";
           errorEmail.setAttribute("hidden", "true");
         }
 
+        if (!captchaReady || captchaToken === "") {
+          if (responseMessage) {
+            responseMessage.innerText = "Veuillez valider le reCAPTCHA.";
+            responseMessage.classList.add("text-red-500");
+          }
+          error = true;
+        }
+
         if (error) {
           return;
         }
@@ -251,14 +277,17 @@ import decorForm from "../../assets/pics/contact-pic.svg";
           message = "Objet: Boire un café\n\n" + message;
         }
         formData.set("message", message);
-
-        const responseMessage = document.getElementById("responseMessage");
+        formData.set("g-recaptcha-response", captchaToken);
 
         try {
           const response = await fetch("https://compoz.tech/sendmail.php", {
             method: "POST",
             body: formData,
           });
+
+          grecaptcha.reset();
+          captchaToken = "";
+          captchaReady = false;
 
           if (responseMessage && response.status === 200) {
             responseMessage.innerText = "Email envoyé avec succès.";

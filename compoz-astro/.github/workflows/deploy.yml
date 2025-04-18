@@ -1,0 +1,36 @@
+name: 🚀 Déploiement Astro
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout du code
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: 📦 Installer les dépendances
+        run: npm install
+
+      - name: 🏗️ Build du projet
+        run: npm run build
+
+      - name: 🚚 Déploiement via SSH
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote-user: ${{ secrets.REMOTE_USER }}
+          server-ip: ${{ secrets.REMOTE_HOST }}
+          remote-path: /home/u240159074/domains/compoz.tech/public_html
+          local-path: dist/
+          port: 65002
+          args: "-avz --exclude='.DS_Store'"
