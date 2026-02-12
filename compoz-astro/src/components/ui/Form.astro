@@ -7,40 +7,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
   class="flex relative justify-start items-center p-10 sm:p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
 >
   <form id="form" class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex flex-col sm:flex-row gap-[35px] sm:items-center mb-5">
-      <div class="flex items-center gap-5">
-        <input
-          type="checkbox"
-          id="checkbox1"
-          name="checkbox1"
-          class="form-checkbox text-black"
-        />
-        <label for="checkbox1" class="text-black">Faire connaissance</label>
-      </div>
-      <div class="flex items-center gap-5">
-        <input
-          type="checkbox"
-          id="checkbox2"
-          name="checkbox2"
-          class="form-checkbox text-black"
-        />
-        <label for="checkbox2" class="flex items-center text-black">
-          Demander un devis
-        </label>
-      </div>
-    </div>
-    <div class="flex items-center gap-5 mb-10">
-      <input
-        type="checkbox"
-        id="checkbox3"
-        name="checkbox3"
-        class="form-checkbox text-black"
-      />
-      <label for="checkbox3" class="flex items-center text-black">
-        Prendre un café, si vous passez par Toulouse :)
-      </label>
-    </div>
-
     <div class="mb-4">
       <label for="name" class="block text-black mb-2">Nom*</label>
       <input
@@ -90,7 +56,7 @@ import decorForm from "../../assets/pics/contact-pic.svg";
       <textarea
         id="message"
         name="message"
-        placeholder="Message"
+        placeholder="Décrivez votre projet en quelques lignes…"
         class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none min-h-[10em]"
       ></textarea>
     </div>
@@ -116,40 +82,9 @@ import decorForm from "../../assets/pics/contact-pic.svg";
     >
   </form>
   <picture class="absolute right-[-25%] left-[60%] top-[2%] hidden lg:block">
-    <Image src={decorForm} alt="decor" class="size-full" />
+    <Image src={decorForm} alt="Illustration formulaire de contact" class="size-full" />
   </picture>
 </div>
-<style>
-  .form-checkbox {
-    appearance: none;
-    width: 28px;
-    min-width: 28px;
-    height: 28px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-  }
-
-  .form-checkbox:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--green);
-    transform: scale(0);
-    transition: transform 0.1s ease-in-out;
-  }
-
-  .form-checkbox:checked:before {
-    transform: scale(0.6);
-  }
-</style>
 <script is:inline src="https://www.google.com/recaptcha/api.js" async defer
 ></script>
 <script>
@@ -163,9 +98,6 @@ import decorForm from "../../assets/pics/contact-pic.svg";
       3000,
     );
 
-    var cb1 = document.getElementById("checkbox1") as HTMLInputElement;
-    var cb2 = document.getElementById("checkbox2") as HTMLInputElement;
-    var cb3 = document.getElementById("checkbox3") as HTMLInputElement;
     const form = document.getElementById("form") as HTMLFormElement;
     const name = document.getElementById("name") as HTMLInputElement;
     const email = document.getElementById("email") as HTMLInputElement;
@@ -173,44 +105,7 @@ import decorForm from "../../assets/pics/contact-pic.svg";
     const errorName = document.getElementById("errorName");
     const errorEmail = document.getElementById("errorEmail");
 
-    if (
-      cb1 &&
-      cb2 &&
-      cb3 &&
-      form &&
-      name &&
-      email &&
-      msg &&
-      errorEmail &&
-      errorName
-    ) {
-      cb1.checked = true;
-
-      cb1.addEventListener("change", function () {
-        if (cb1.checked) {
-          cb2.checked = false;
-          cb3.checked = false;
-        } else {
-          cb1.checked = true;
-        }
-      });
-      cb2.addEventListener("change", function () {
-        if (cb2.checked) {
-          cb1.checked = false;
-          cb3.checked = false;
-        } else {
-          cb2.checked = true;
-        }
-      });
-      cb3.addEventListener("change", function () {
-        if (cb3.checked) {
-          cb1.checked = false;
-          cb2.checked = false;
-        } else {
-          cb3.checked = true;
-        }
-      });
-
+    if (form && name && email && msg && errorEmail && errorName) {
       msg.addEventListener("input", function () {
         if (msg.value.length > 1000) {
           msg.value = msg.value.substring(0, 1000);
@@ -245,18 +140,8 @@ import decorForm from "../../assets/pics/contact-pic.svg";
 
         const formData = new FormData(this);
 
-        let message = formData.get("message")?.toString() ?? "";
-        if (cb1.checked) {
-          message = "Objet: Faire connaissance\n\n" + message;
-        } else if (cb2.checked) {
-          message = "Objet: Demande de devis\n\n" + message;
-        } else if (cb3.checked) {
-          message = "Objet: Boire un café\n\n" + message;
-        }
-        formData.set("message", message);
-
         try {
-          const response = await fetch("https://compoz.tech/sendmail.php", {
+          const response = await fetch("https://www.compoz.tech/sendmail.php", {
             method: "POST",
             body: formData,
           });

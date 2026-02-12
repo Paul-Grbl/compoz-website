@@ -8,39 +8,85 @@ import mobile from "../../assets/icons/mobile.svg";
 import linux from "../../assets/icons/linux.svg";
 import server from "../../assets/icons/server.svg";
 
+const featured = {
+  title: "Traçabilité des filtres hospitaliers — Polymem",
+  context:
+    "Polymem — Fabricant français de membranes filtrantes, équipe les hôpitaux avec des microfiltres terminaux (douches, robinets) pour la protection contre les agents pathogènes. Le défi : assurer le remplacement des filtres au bon moment, sans oubli ni erreur, pour maintenir la sécurité sanitaire.",
+  deliverables: [
+    "Application mobile de terrain (scan code-barres, synchro serveur)",
+    "Plateforme web centralisée pour le suivi du parc de filtres",
+    "Alertes de remplacement",
+    "Co-construction agile avec les équipes Polymem",
+  ],
+  benefits: [
+    "Gain de temps : interventions simplifiées pour les techniciens",
+    "Réduction des erreurs : automatisation des contrôles",
+    "Anticipation : alertes avant expiration des filtres",
+    "Centralisation : vue complète du parc, localisations et dates",
+  ],
+  result:
+    "Solution déployée en milieu hospitalier, renforçant la sécurité sanitaire des établissements de soins",
+  related: "Flutter · Directus · iOS · Android · Web · Docker",
+  icons: [mobile, desktop, server],
+  alt: ["Application mobile", "Plateforme web", "Serveur"],
+};
+
 const cards = [
   {
     index: 0,
-    paragraphs: [
-      "Création d'une application mobile pour iOS et android dans le but de simplifier les comptes entre amis.",
-      "J'ai développé cette app en utilisant le framework Flutter du langage Dart et en me basant sur la clean architecture.",
-      "J'ai aussi développé la partie serveur (backend).",
+    title: "Appli mobile de partage de dépenses - fluzz",
+    context:
+      "fluzz — Besoin d'une app intuitive pour simplifier les comptes entre amis",
+    deliverables: [
+      "Application iOS & Android",
+      "Serveur backend complet",
+      "Déploiement Docker automatisé",
     ],
-    related: "Flutter, iOS, android, Serverpod, docker",
+    result:
+      "Application publiée sur les stores, utilisable immédiatement par les utilisateurs finaux",
+    related: "Flutter · iOS · Android · Directus · Docker",
     icons: [mobile, server],
-    alt: ["mobile", "server"],
+    alt: ["Application mobile", "Serveur backend"],
   },
   {
     index: 1,
-    paragraphs: [
-      "Pour une entreprise dans le domaine de la gestion d'équipements électroniques, j'ai développé une IHM (avec Flutter) embarquée dans un Raspberry Compute module 4 s'exécutant sur un écran tactile.",
-      " Cette application communique avec des protocoles bas niveau pour piloter l'électronique, et avec une appli web django en MQTT pour laquelle j'ai contribué au développement backend et frontend.",
-      "J'ai également développé le firmware embarqué (en C sur un RP2040) dans une carte électronique qui communique en RS485 avec le compute module.",
+    title: "Produit connecté avec IHM tactile et plateforme de gestion",
+    context:
+      "PME industrielle — besoin d'un équipement connecté piloté par écran tactile, avec gestion centralisée du parc et des réservations",
+    deliverables: [
+      "IHM tactile embarquée sur Raspberry Pi CM4",
+      "Firmware embarqué (C) pour piloter actionneurs et LEDs",
+      "Plateforme web de gestion du parc et des réservations",
+      "Conception de l'électronique de commande",
     ],
-    related: "Flutter, django, C, MQTT, linux, docker",
+    result:
+      "Produit complet livré de bout en bout : conception électronique + plateforme web + IHM tactile embarquée",
+    related: "Flutter · C · Django · MQTT · RS485 · Linux · Docker",
     icons: [mobile, desktop, server, linux, chip],
-    alt: ["mobile", "desktop", "server", "linux", "chip"],
+    alt: [
+      "Interface mobile",
+      "Application desktop",
+      "Serveur",
+      "Linux",
+      "Microcontrôleur",
+    ],
   },
   {
     index: 2,
-    paragraphs: [
-      "Pour une PME dans le domaine de l'assainissement, j'ai développé une application web (React) et contribué au développement du serveur django.",
-      "Tous deux sont embarqués dans leur nouveau produit connecté qui permet la visualisation et la télérelève de données métier.",
-      "Dans ce cadre, j'ai également développé des services linux (python, C) dans le but de faire communiquer le produit en MQTT via le réseau cellulaire.",
+    title: "Plateforme connectée pour l'assainissement",
+    context:
+      "PME assainissement — besoin de visualiser et télérelever des données terrain",
+    deliverables: [
+      "Application web embarquée",
+      "Services Linux (Python, C)",
+      "Communication MQTT via réseau cellulaire",
+      "Alerting mail & SMS",
     ],
-    related: "React, django, C, python, linux",
+    result:
+      "Nouveau produit connecté commercialisé, permettant la télérelève en temps réel",
+    related: "React · Django · C · Python · Linux",
     icons: [desktop, server, linux],
-    alt: ["desktop", "server", "linux"],
+    alt: ["Application desktop", "Serveur", "Linux"],
   },
 ];
 
@@ -50,24 +96,97 @@ import SectionTitle from "../ui/SectionTitle.astro";
 <Section id="cases">
   <div class="mt-20">
     <SectionTitle
-      sectionTitle="Derniers projets"
-      description="Quelques exemples de projets que j'ai menés à bien ces dernières années"
+      sectionTitle="Projets réalisés"
+      description="Des exemples concrets de projets livrés avec succès pour mes clients"
     />
+
+    <!-- Projet mis en avant : Polymem -->
+    <div class="mb-10">
+      <Card>
+        <div
+          class="flex flex-col lg:flex-row bg-dark text-gray rounded-[45px] overflow-hidden"
+        >
+          <div class="flex flex-col gap-5 p-8 sm:p-[50px] lg:w-1/2">
+            <div class="flex flex-row gap-5">
+              {
+                featured.icons.map((icon, index) => (
+                  <Image src={icon} alt={featured.alt[index]} />
+                ))
+              }
+            </div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-2xl font-medium text-white">{featured.title}</h3>
+            </div>
+            <p class="text-sm text-gray/70 leading-relaxed">
+              {featured.context}
+            </p>
+            <div>
+              <h4 class="text-sm font-medium text-white mb-2">
+                Ce que j'ai développé
+              </h4>
+              <ul class="space-y-1.5">
+                {
+                  featured.deliverables.map((d) => (
+                    <li class="text-sm flex gap-2">
+                      <span class="text-green mt-0.5 shrink-0">&#10003;</span>
+                      <span>{d}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <span class="text-xs text-gray/40">{featured.related}</span>
+          </div>
+          <div
+            class="flex flex-col gap-5 p-8 sm:p-[50px] lg:w-1/2 bg-dark/50 border-t lg:border-t-0 lg:border-l border-gray/10"
+          >
+            <h4 class="text-sm font-medium text-white mb-1">
+              Bénéfices pour le client
+            </h4>
+            <ul class="space-y-3">
+              {
+                featured.benefits.map((b) => (
+                  <li class="text-sm flex gap-3 items-start">
+                    <span class="text-green text-sm leading-5 shrink-0">✽</span>
+                    <span class="text-gray/80">{b}</span>
+                  </li>
+                ))
+              }
+            </ul>
+            <div class="mt-auto pt-5 border-t border-gray/10">
+              <p class="text-base font-medium text-green">{featured.result}</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+
+    <!-- Autres projets -->
     <div class="flex flex-col lg:flex-row justify-between rounded-[45px] p-1">
       {
         cards.map((card) => (
           <Card>
-            <div class="flex p-[60px] h-full bg-dark text-gray rounded-[45px] lg:me-5 mb-5">
-              <div class="flex flex-col gap-5">
+            <div class="flex p-8 sm:p-[50px] h-full bg-dark text-gray rounded-[45px] lg:me-5 mb-5">
+              <div class="flex flex-col gap-4">
                 <div class="flex flex-row gap-5">
                   {card.icons.map((icon, index) => (
                     <Image src={icon} alt={card.alt[index]} />
                   ))}
                 </div>
-                {card.paragraphs.map((p) => (
-                  <p>{p}</p>
-                ))}
-                <span class="text-green">{card.related}</span>
+                <h3 class="text-xl font-medium text-white">{card.title}</h3>
+                <p class="text-sm text-gray/60 italic">{card.context}</p>
+                <ul class="space-y-1.5">
+                  {card.deliverables.map((d) => (
+                    <li class="text-sm flex gap-2">
+                      <span class="text-green mt-0.5 shrink-0">&#10003;</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-auto pt-4 border-t border-gray/10">
+                  <p class="text-sm font-medium text-green">{card.result}</p>
+                </div>
+                <span class="text-xs text-gray/40">{card.related}</span>
               </div>
             </div>
           </Card>

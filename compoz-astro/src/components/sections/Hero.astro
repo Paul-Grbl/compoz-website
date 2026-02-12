@@ -12,37 +12,40 @@ import ArrowDown from "../ui/ArrowDown.astro";
         class="relative flex flex-col-reverse items-center md:flex-row"
         id="hero"
     >
-        <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
+        <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-20">
             <div class="text-left space-y-3">
                 <h1
                     class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left"
                 >
-                    <!-- Navigating the <br /> digital landscape <br /> for success -->
-                    Ensemble on <br />
-                    <strong>compoz</strong> votre <br />
+                    Votre idée mérite <br />
+                    une <strong>application</strong>
+                    <br />
                     <div id="animated-text" class="min-h-[2em]">
-                        application mobile
+                        performante
                     </div>
                 </h1>
                 <p
                     class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12"
                 >
-                    A partir de <strong>votre besoin</strong>, je vous
-                    accompagne dans l'élaboration d'une solution technique
-                    <strong>compozée sur mesure</strong> grâce à mon expérience dans
-                    différents domaines techniques.
-                    <br />De l'application mobile à l'application web en passant
-                    par le système embarqué communicant, je développe vos
-                    produits numériques.
+                    Ingénieur logiciel freelance à Toulouse, je transforme vos
+                    besoins métier en <strong>applications sur mesure</strong> —
+                    mobiles, desktop ou embarquées. Polyvalent et adaptable, je choisis
+                    la technologie la plus pertinente pour votre projet.
                 </p>
                 <div
-                    class="w-full justify-center md:justify-start items-center inline-flex"
+                    class="w-full justify-center md:justify-start items-center inline-flex gap-4"
                 >
                     <a
                         href="/#contact"
-                        class="px-8 py-5 bg-zinc-900 hover:bg-white rounded-2xl text-center text-white hover:text-black border text-xl font-normal leading-7"
+                        class="px-8 py-5 bg-zinc-900 hover:bg-green hover:text-black rounded-2xl text-center text-white border text-xl font-normal leading-7 transition-all duration-200"
                     >
-                        Me contacter
+                        Demander un devis gratuit
+                    </a>
+                    <a
+                        href="/#cases"
+                        class="hidden sm:inline-flex px-8 py-5 bg-transparent hover:bg-zinc-900 hover:text-white rounded-2xl text-center text-black border border-zinc-900 text-xl font-normal leading-7 transition-all duration-200"
+                    >
+                        Voir mes projets
                     </a>
                 </div>
             </div>
@@ -52,19 +55,19 @@ import ArrowDown from "../ui/ArrowDown.astro";
         >
             <Image
                 src={HeroIlust1}
-                alt="Hero Ilustration"
+                alt="Exemple d'application mobile iOS et Android réalisée par compoz technologies"
                 loading="eager"
                 class="floating1 -rotate-12 md:w-4/12 z-10 left-20 absolute shadow-xl rounded-[28px]"
             />
             <Image
                 src={HeroIlust2}
-                alt="Hero Ilustration"
+                alt="Exemple d'application web responsive réalisée par compoz technologies"
                 loading="eager"
                 class="floating2 rotate-3 left-0 absolute shadow-xl rounded-md"
             />
             <Image
                 src={HeroIlust3}
-                alt="Hero Ilustration"
+                alt="Exemple d'interface embarquée réalisée par compoz technologies"
                 loading="eager"
                 class="floating3 rotate-12 md:w-4/12 right-0 -mt-5 absolute shadow-lg rounded-xl"
             />
@@ -91,7 +94,7 @@ import ArrowDown from "../ui/ArrowDown.astro";
     .floating1 {
         animation: float1 6s ease-in-out infinite;
         animation-delay: 1.5s;
-        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+        display: inline-block;
     }
 
     @keyframes float2 {
@@ -108,7 +111,7 @@ import ArrowDown from "../ui/ArrowDown.astro";
 
     .floating2 {
         animation: float2 6s ease-in-out infinite;
-        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+        display: inline-block;
     }
 
     @keyframes float3 {
@@ -126,7 +129,7 @@ import ArrowDown from "../ui/ArrowDown.astro";
     .floating3 {
         animation: float3 6s ease-in-out infinite;
         animation-delay: 0.5s;
-        display: inline-block; /* Évite les effets étranges sur les éléments inline */
+        display: inline-block;
     }
 </style>
 
@@ -151,27 +154,27 @@ import ArrowDown from "../ui/ArrowDown.astro";
 
         tl.to("#animated-text", {
             duration: 2,
-            text: "appli web",
+            text: "fiable",
             ease: "power2.inOut",
-            delay: 1,
+            delay: 1.5,
         });
         tl.to("#animated-text", {
             duration: 2,
-            text: "appli desktop",
+            text: "sur mesure",
             ease: "power2.inOut",
-            delay: 1,
+            delay: 1.5,
         });
         tl.to("#animated-text", {
             duration: 2,
-            text: "appli embarquée",
+            text: "multiplateforme",
             ease: "power2.inOut",
-            delay: 1,
+            delay: 1.5,
         });
         tl.to("#animated-text", {
             duration: 2,
-            text: "application mobile",
+            text: "performante",
             ease: "power2.inOut",
-            delay: 1,
+            delay: 1.5,
         });
     });
 </script>

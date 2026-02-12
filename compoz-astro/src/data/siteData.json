@@ -1,8 +1,8 @@
 {
-  "title": "Positivus",
-  "description": "Positivus is a simple and minimalistic blog theme for Ghost. It is designed to be a perfect starting point for your blog project.",
+  "title": "compoz technologies — Ingénieur logiciel freelance | Mobile, Desktop, Embarqué",
+  "description": "Ingénieur logiciel freelance à Toulouse. Je conçois vos applications mobiles, desktop et embarquées sur mesure. +8 ans d'expérience, polyvalence technique, livraison maîtrisée.",
   "image": {
-    "src": "https://github.com/manulthanura/Positivus/raw/main/public/cover.png",
-    "alt": "Positivus"
+    "src": "/og-image.png",
+    "alt": "compoz technologies — Ingénieur logiciel freelance à Toulouse"
   }
 }

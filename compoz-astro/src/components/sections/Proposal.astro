@@ -9,18 +9,22 @@ import propImg from "../../assets/pics/proposal-pic.svg";
 <Section>
   <Card>
     <div class="flex bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-20">
-      <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
-        <h2 class="text-3xl font-medium">Ça commence dès maintenant</h2>
-        <p>
-          Contactez-moi dès à présent pour me présenter vos besoins et discuter
-          des solutions que nous pourrons mettre en place pour y répondre.
+      <div class="w-full md:w-[45%] flex flex-col gap-[26px]">
+        <h2 class="text-3xl font-medium">
+          Vous avez un projet ?<br />
+          <span class="text-green blackhead">Parlons-en.</span>
+        </h2>
+        <p class="text-dark/70">
+          Premier échange gratuit et sans engagement. Je vous écoute, je vous
+          conseille et je vous propose la solution la plus adaptée à vos
+          besoins, votre budget et vos délais.
         </p>
         <a id="contactClick" href="/#contact" hidden></a>
         <button
-          class="btn-primary"
+          class="btn-primary w-fit"
           onclick="document.getElementById('contactClick').click();"
         >
-          Entrer en contact
+          Demander un devis gratuit
         </button>
       </div>
       <picture
@@ -28,7 +32,7 @@ import propImg from "../../assets/pics/proposal-pic.svg";
       >
         <Image
           src={propImg}
-          alt="This is an illustration"
+          alt="Illustration de prise de contact pour un projet de développement"
           class="hidden md:flex lg:h-full lg:w-auto"
         />
       </picture>

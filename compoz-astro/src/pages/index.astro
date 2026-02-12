@@ -2,23 +2,22 @@
 import Cases from "../components/sections/Cases.astro";
 import Contact from "../components/sections/Contact.astro";
 import Hero from "../components/sections/Hero.astro";
+import KeyFigures from "../components/sections/KeyFigures.astro";
+import Process from "../components/sections/Process.astro";
 import Proposal from "../components/sections/Proposal.astro";
 import Services from "../components/sections/Services.astro";
-// import Sponsors from "../components/sections/Sponsors.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout
-  title="compoz technologies"
-  description="A beautiful and functional landing page design created specifically for digital marketing agencies. With its clean and modern design, Positivus is the perfect template to showcase your agency's services and case studies to potential clients. Built with astro and tailwindcss"
+  title="compoz technologies — Ingénieur logiciel freelance | Mobile, Desktop, Embarqué"
+  description="Ingénieur logiciel freelance à Toulouse. Applications mobiles, desktop, embarquées et web — conçues sur mesure pour votre métier. Contactez-moi pour un devis gratuit."
 >
   <Hero />
-  <!-- <Sponsors /> -->
+  <KeyFigures />
   <Services />
   <Proposal />
-  <!-- <Process /> -->
   <Cases />
-  <!-- <Team /> -->
-  <!-- <Testimonials /> -->
+  <Process />
   <Contact />
 </MainLayout>

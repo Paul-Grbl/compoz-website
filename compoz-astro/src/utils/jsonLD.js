@@ -26,10 +26,43 @@ export default function jsonLDGenerator({ type, post, url }) {
   }
   return `<script type="application/ld+json">
       {
-      "@context": "https://schema.org/",
-      "@type": "WebSite",
-      "name": "${siteData.title}",
-      "url": "${import.meta.env.SITE}"
+        "@context": "https://schema.org/",
+        "@type": "ProfessionalService",
+        "name": "compoz technologies",
+        "description": "${siteData.description}",
+        "url": "${import.meta.env.SITE}",
+        "founder": {
+          "@type": "Person",
+          "name": "Paul Guirbal",
+          "jobTitle": "Ingénieur logiciel freelance"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toulouse",
+          "addressCountry": "FR"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "knowsAbout": [
+          "Développement logiciel sur mesure",
+          "Développement mobile",
+          "Applications iOS",
+          "Applications Android",
+          "Applications desktop",
+          "Systèmes embarqués",
+          "Raspberry Pi",
+          "IoT",
+          "Flutter",
+          "React",
+          "Python",
+          "C"
+        ],
+        "priceRange": "$$",
+        "sameAs": [
+          "https://www.linkedin.com/in/paul-guirbal-4a6a978b"
+        ]
       }
     </script>`;
 }

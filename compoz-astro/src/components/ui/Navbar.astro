@@ -5,25 +5,30 @@ const menuitems = [
   { href: "/#home", label: "Accueil" },
   { href: "/#services", label: "Services" },
   { href: "/#cases", label: "Projets" },
-  // { href: "/pricing", label: "Tarifs" },
-  // { href: "/articles", label: "Blog" },
+  { href: "/#process", label: "Process" },
 ];
 
 const navButton = {
   href: "/#contact",
-  label: "Demander un devis",
+  label: "Devis gratuit",
 };
 ---
 
 <div class="mt-20">
-  <nav class="w-full top-0 left-0 z-50 fixed bg-white">
+  <nav
+    class="w-full top-0 left-0 z-50 fixed bg-white/95 backdrop-blur-md border-b border-gray-100"
+  >
     <header
       class="flex flex-col lg:flex-row justify-between items-center my-5 px-6 md:px-32"
     >
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/logo.svg" class="h-8" alt="Logo" />
+            <img
+              src="/logo.svg"
+              class="h-8"
+              alt="compoz technologies — Ingénieur logiciel freelance"
+            />
           </a>
           <div class="block lg:hidden">
             <div id="menu-icon" class="w-8 h-8 text-black cursor-pointer">
@@ -73,7 +78,7 @@ const navButton = {
                 <li>
                   <a
                     href={item.href}
-                    class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0"
+                    class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0 hover:text-green transition-colors"
                     data-close-menu="true"
                   >
                     {item.label}
@@ -83,7 +88,7 @@ const navButton = {
             }
             <div class="lg:hidden flex items-center justify-center mt-3 gap-4">
               <a
-                class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex"
+                class="mobile-nav-link px-9 py-5 rounded-2xl bg-dark text-white hover:bg-green hover:text-black inline-flex transition-all duration-200"
                 href={navButton.href}
                 data-close-menu="true"
               >
@@ -99,10 +104,10 @@ const navButton = {
       <div>
         <div class="hidden lg:flex items-center gap-4">
           <a
-            class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex"
+            class="px-9 py-4 rounded-2xl bg-dark text-white hover:bg-green hover:text-black inline-flex transition-all duration-200"
             href={navButton.href}
           >
-            <h2 class="text-center text-xl font-normal leading-7">
+            <h2 class="text-center text-lg font-normal leading-7">
               {navButton.label}
             </h2>
           </a>
@@ -118,13 +123,11 @@ const navButton = {
   const openIcon = document.getElementById("open-icon");
   const closeIcon = document.getElementById("close-icon");
   const menuItems = document.getElementById("menu-items");
-  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]'); // Select all items with the 'data-close-menu' attribute
+  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]');
 
   // Toggle the menu visibility and icon when the menu icon is clicked
   menuIcon.addEventListener("click", () => {
-    menuItems.classList.toggle("hidden"); // Toggle the 'hidden' class on the menu
-
-    // Toggle between open and close icons
+    menuItems.classList.toggle("hidden");
     openIcon.classList.toggle("hidden");
     closeIcon.classList.toggle("hidden");
   });
@@ -132,9 +135,9 @@ const navButton = {
   // Close the menu when any item is clicked
   closeMenuItems.forEach((item) => {
     item.addEventListener("click", () => {
-      menuItems.classList.add("hidden"); // Add the 'hidden' class to hide the menu
-      openIcon.classList.remove("hidden"); // Show the open (hamburger) icon
-      closeIcon.classList.add("hidden"); // Hide the close (X) icon
+      menuItems.classList.add("hidden");
+      openIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
     });
   });
 </script>

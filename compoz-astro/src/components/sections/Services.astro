@@ -12,49 +12,59 @@ const cards = [
   {
     index: 1,
     titleTop: "Applications mobiles",
-    titleBottom: "iOS & android",
+    titleBottom: "iOS & Android",
+    description:
+      "Une seule base de code pour toucher 100% de vos utilisateurs sur iPhone et Android. Performance native, coûts maîtrisés.",
     img: c1,
-    alt: "SEO",
-    link: "/#services",
-    stack: "Flutter, Serverpod, Directus",
+    alt: "Développement d'applications mobiles iOS et Android avec Flutter",
+    link: "/#contact",
+    stack: "Flutter · Dart",
   },
   {
     index: 2,
     titleTop: "Applications web",
-    titleBottom: "responsives fullstack",
+    titleBottom: "fullstack & responsives",
+    description:
+      "Des applications web robustes et accessibles depuis n'importe quel navigateur. Interface intuitive, backend fiable, déploiement simplifié.",
     img: c2,
-    alt: "SEO",
-    link: "/#services",
-    stack: "React, django, directus, nodeJS",
+    alt: "Développement d'applications web fullstack responsives",
+    link: "/#contact",
+    stack: "React · Directus · Django",
   },
   {
     index: 3,
-    titleTop: "Applications embarquées",
-    titleBottom: "IHM, Linux, Raspberry Pi",
+    titleTop: "Systèmes embarqués",
+    titleBottom: "IHM · Linux · Raspberry Pi",
+    description:
+      "Des interfaces tactiles et des services embarqués pour vos produits connectés. Communication bas niveau, fiabilité industrielle.",
     img: c3,
-    alt: "SEO",
-    link: "/#services",
-    stack: "Flutter/Dart, python, C",
+    alt: "Développement d'interfaces embarquées sur Raspberry Pi et Linux",
+    link: "/#contact",
+    stack: "Flutter · C · Python · MQTT",
   },
   {
     index: 1,
     titleTop: "Applications desktop",
-    titleBottom: "macOS, Linux, Windows",
+    titleBottom: "macOS · Linux · Windows",
+    description:
+      "Des logiciels natifs multiplateformes pour vos outils métier internes ou vos produits commerciaux.",
     img: c4,
-    alt: "SEO",
-    link: "/#services",
-    stack: "Flutter/Dart, python",
+    alt: "Développement d'applications desktop multiplateformes",
+    link: "/#contact",
+    stack: "Flutter · Dart · Python",
   },
 ];
 
 const description =
-  "Votre besoin + compoz = votre solution numérique sur mesure";
+  "Du prototype à la mise en production, je développe la solution technique adaptée à votre métier";
 ---
 
 <Section id="services">
-  <!-- <div class="mt-[140px] mb-5"> -->
   <div class="mt-20 mb-5">
-    <SectionTitle sectionTitle="Services" description={description} />
+    <SectionTitle
+      sectionTitle="Ce que je développe pour vous"
+      description={description}
+    />
     <div class="grid md:grid-cols-2 md:grid-rows-2 gap-10">
       {
         cards.map((card) => (
@@ -62,6 +72,7 @@ const description =
             index={card.index}
             titleTop={card.titleTop}
             titleBottom={card.titleBottom}
+            description={card.description}
             img={card.img}
             alt={card.alt}
             link={card.link}

@@ -2,27 +2,28 @@
 import { Image } from "astro:assets";
 import Card from "./Card.astro";
 
-/* 
-1. Gray card with green title and green on black icon 
-2. Green card with gray title and green on black icon
-3. Black card with gray title and gray on black icon
-*/
-
-const { index, titleTop, titleBottom, img, alt, stack } = Astro.props;
+const { index, titleTop, titleBottom, description, img, alt, link, stack } = Astro.props;
 ---
 
 <Card isUnderline={true}>
   <div
-    class=`h-[300px] w-full sm:h-full lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] ${index === 1 ? 'bg-gray' : index === 2 ? 'bg-green' : 'bg-dark text-gray'}`
+    class=`h-full w-full lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] ${index === 1 ? 'bg-gray' : index === 2 ? 'bg-green' : 'bg-dark text-gray'}`
   >
-    <h3 class=`flex flex-col col-span-2 lg:col-span-1`>
-      <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
-        >{titleTop}</span
-      >
-      <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
-        >{titleBottom}</span
-      >
-    </h3>
+    <div class="flex flex-col col-span-2 lg:col-span-1 gap-3">
+      <h3 class="flex flex-col">
+        <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
+          >{titleTop}</span
+        >
+        <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
+          >{titleBottom}</span
+        >
+      </h3>
+      {description && (
+        <p class=`text-sm leading-relaxed ${index === 3 ? 'text-gray/80' : 'text-dark/70'}`>
+          {description}
+        </p>
+      )}
+    </div>
     <picture
       class="w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
     >
@@ -32,12 +33,11 @@ const { index, titleTop, titleBottom, img, alt, stack } = Astro.props;
         class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
       />
     </picture>
-    <div class="flex items-end w-min">
-      <!-- <a href={link} class="flex items-center gap-3.5"
-        ><Image src={index === 1 || index === 2 ? gob : wob} alt={alt} />
-        <span class="hidden sm:block">En savoir plus</span></a
-      > -->
-      {stack}
+    <div class="flex items-end justify-between w-full">
+      <span class=`text-xs ${index === 3 ? 'text-green' : 'text-dark/50'}`>{stack}</span>
+      <a href={link} class=`text-sm font-medium underline underline-offset-4 hover:no-underline transition-all ${index === 3 ? 'text-green hover:text-white' : index === 2 ? 'text-dark hover:text-dark/70' : 'text-dark hover:text-dark/70'}`>
+        En&nbsp;discuter&nbsp;&rarr;
+      </a>
     </div>
   </div>
 </Card>

@@ -1,0 +1,32 @@
+---
+import Section from "./Section.astro";
+
+const figures = [
+  {
+    display: '+8<span class="text-green">ans</span>',
+    label: "années d'expérience",
+  },
+  { display: '10<span class="text-green">+</span>', label: "projets livrés" },
+  { display: "1", label: "interlocuteur unique" },
+];
+---
+
+<Section>
+  <div class="mt-20 mb-5">
+    <div class="grid grid-cols-3 gap-8 md:gap-4">
+      {
+        figures.map((fig) => (
+          <div class="flex flex-col items-center text-center p-6 md:p-8">
+            <span
+              class="text-4xl md:text-5xl font-medium text-dark"
+              set:html={fig.display}
+            />
+            <span class="mt-2 text-sm md:text-base text-dark/60 uppercase tracking-wider">
+              {fig.label}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
